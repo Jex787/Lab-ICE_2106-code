@@ -1,0 +1,28 @@
+def matrix_exclusive_or(matrix1, matrix2):
+    xor_matrix = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            row.append(matrix1[i][j] ^ matrix2[i][j])
+        xor_matrix.append(row)
+    return xor_matrix
+
+def matrix_union(mat1, mat2):
+    mat_union = []
+    for i in range(len(mat1)):
+        mat_union.append([mat1[i][j] or mat2[i][j] for j in range(len(mat1[0]))])
+    return mat_union
+
+matrix1 = [[1, 0, 1],
+           [1, 0, 0],
+           [0, 1, 1]]
+matrix2 = [[1, 0, 1],
+           [0, 1, 1],
+           [1, 0, 1]]
+
+print('First Matrix=', matrix1)
+print('Second Matrix=', matrix2)
+mu = matrix_union(matrix1, matrix2)
+print('Matrix Union', mu)
+mxor = matrix_exclusive_or(matrix1, matrix2)
+print('Matrix Exclusive-OR', mxor)
