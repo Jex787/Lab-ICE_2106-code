@@ -1,0 +1,17 @@
+Bisection Algorithm
+
+(1) Decide initial value for x1 and x2 and stopping criterion, E
+(2) Compute f1=f(x1) and f2 = f(x2) 
+(3) If f1*f2 > 0, x1 and x2 donot bracket any root and go to step 7
+(4) Compute x0 = (x1+x2)/2 and compute f0 = f(x0)
+(5) If f1*f0 < 0 then,
+         set x2=x0
+       else,
+         set x1 = x0
+         set f1 = f0
+(6) If absolute value of (x2 - x1)/x2 is less then error E, then root = (x1 + x2)/2
+         Write the value of root 
+         go to step 7
+       else,
+         go to step 4
+(7) Stop.

@@ -1,0 +1,7 @@
+Let, 
+     x0 = x1 - f(x1) * (x2 - x1) / f(x2) - f(x1)
+     
+    if f(x0) * f(x1) < 0
+        set x2 = x0
+    otherwise,
+        set x1 = x2
