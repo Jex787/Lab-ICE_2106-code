@@ -1,17 +1,11 @@
 INF = 1000000000
 
 def floyd_warshall(vertex, adjacency_matrix):
-    # calculating all pair shortest path
     for k in range(0, vertex):
         for i in range(0, vertex):
             for j in range(0, vertex):
-                # relax the distance from i to j by allowing vertex k as intermediate vertex
-                # consider which one is better, going through vertex k or the previous value
                 adjacency_matrix[i][j] = min(adjacency_matrix[i][j], adjacency_matrix[i][k] + adjacency_matrix[k][j])
 
-    # pretty print the graph
-    # o/d means the leftmost row is the origin vertex
-    # and the topmost column as destination vertex
     print("o/d", end='')
     for i in range(0, vertex):
         print("\t{:d}".format(i+1), end='')
@@ -41,3 +35,13 @@ adjacency_matrix = [
 ]
 
 floyd_warshall(4, adjacency_matrix)
+
+
+
+
+# output:
+# o/d     1       2       3       4
+# 1       0       5       8       9
+# 2       1000000000      0       3       4
+# 3       1000000000      1000000000      0       1        
+# 4       1000000000      1000000000      1000000000      0

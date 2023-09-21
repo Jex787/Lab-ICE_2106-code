@@ -1,6 +1,5 @@
 def color_nodes(graph):
     color_map = {}
-    # Consider nodes in descending degree
     for node in sorted(graph, key=lambda x: len(graph[x]), reverse=True):
         neighbor_colors = set(color_map.get(neigh) for neigh in graph[node])
         color_map[node] = next(
@@ -8,7 +7,6 @@ def color_nodes(graph):
         )
     return color_map
 
-# Adjacent list
 graph = {
     'a': list('bcd'),
     'b': list('ac'),
@@ -19,3 +17,9 @@ graph = {
 }
 
 print(color_nodes(graph))
+
+
+
+
+#output:
+#{'c': 0, 'a': 1, 'd': 2, 'e': 1, 'b': 2, 'f': 2}

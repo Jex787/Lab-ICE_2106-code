@@ -26,3 +26,12 @@ mu = matrix_union(matrix1, matrix2)
 print('Matrix Union', mu)
 mxor = matrix_exclusive_or(matrix1, matrix2)
 print('Matrix Exclusive-OR', mxor)
+
+
+
+
+#output:
+#First Matrix= [[1, 0, 1], [1, 0, 0], [0, 1, 1]]      
+#Second Matrix= [[1, 0, 1], [0, 1, 1], [1, 0, 1]]     
+#Matrix Union [[1, 0, 1], [1, 1, 1], [1, 1, 1]]       
+#Matrix Exclusive-OR [[0, 0, 0], [1, 1, 1], [1, 1, 0]]

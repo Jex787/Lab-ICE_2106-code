@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double equation(double x)
+{
+    return x * x - 4 * x - 10;
+}
+
+int main()
+{
+    double x1, x2, x0, errlimit;
+    cout << "Enter the error limit: ";
+    cin >> errlimit;
+
+    x1 = -1000.0; // Set initial left endpoint
+    x2 = 1000.0;  // Set initial right endpoint
+
+    while (x2 - x1 > errlimit)
+    {
+        x0 = (x2 + x1) / 2.0;
+        if (equation(x0) == 0)
+        {
+            break;
+        }
+        else if (equation(x1) * equation(x0) < 0)
+        {
+            x2 = x0;
+        }
+        else
+        {
+            x1 = x0;
+        }
+    }
+
+    cout << "Root: " << x0 << endl;
+    return 0;
+}
+
+
+
+//output:
+//Enter the error limit: 0.0001
+//Root: -1.74171
