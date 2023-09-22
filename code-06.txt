@@ -10,20 +10,38 @@ double equation(double x)
 int main()
 {
     double x1, x2, x0, errlimit;
+    int xmax;
+
     cout << "Enter the error limit: ";
     cin >> errlimit;
 
-    x1 = -1000.0; // Set initial left endpoint
-    x2 = 1000.0;  // Set initial right endpoint
+    xmax = ceil(sqrt(pow((-4.0 / 1.0), 2) - 2 * (-10.0 / 1.0)));
+
+    for (int i = -xmax; i < xmax; i++)
+    {
+        x1 = equation(i);
+        x2 = equation(i + 1);
+
+        if ((x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0))
+        {
+            x1 = i;
+            x2 = i + 1;
+            break;
+        }
+    }
 
     while (x2 - x1 > errlimit)
     {
         x0 = (x2 + x1) / 2.0;
-        if (equation(x0) == 0)
+        double l = equation(x1);
+        double m = equation(x0);
+        double r = equation(x2);
+
+        if (m == 0)
         {
             break;
         }
-        else if (equation(x1) * equation(x0) < 0)
+        else if (l * m < 0)
         {
             x2 = x0;
         }
@@ -34,11 +52,13 @@ int main()
     }
 
     cout << "Root: " << x0 << endl;
+
     return 0;
 }
 
 
 
+
 //output:
 //Enter the error limit: 0.0001
-//Root: -1.74171
+//Root: -1.74164

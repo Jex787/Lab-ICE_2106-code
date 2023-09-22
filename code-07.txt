@@ -1,7 +1,5 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
-
 double equation(double x)
 {
     return x * x - x - 2;
@@ -9,20 +7,29 @@ double equation(double x)
 
 int main()
 {
-    double a = 1.0, b = 3.0, errLimit, x0;
+    double a = 1.0;
+    double b = 3.0;
+    double errLimit;
 
     cout << "Enter the error limit: ";
     cin >> errLimit;
 
+    double x0;
+
     while (abs(b - a) > errLimit)
     {
-        x0 = a - (equation(a) * (b - a)) / (equation(b) - equation(a));
+        double fa = equation(a);
+        double fb = equation(b);
 
-        if (equation(x0) == 0.0)
+        x0 = a - (fa * (b - a)) / (fb - fa);
+
+        double fx0 = equation(x0);
+
+        if (fx0 == 0.0)
         {
             break;
         }
-        else if (equation(x0) * equation(a) < 0)
+        else if (fx0 * fa < 0)
         {
             b = x0;
         }
@@ -36,6 +43,9 @@ int main()
 
     return 0;
 }
+
+
+
 
 
 //output:

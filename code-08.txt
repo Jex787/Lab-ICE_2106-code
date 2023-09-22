@@ -1,15 +1,14 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
 double func(double x)
 {
-    return x * x * x - x * x + 2;
+    return x * x - 3 * x + 2;
 }
 
 double derivFunc(double x)
 {
-    return 3 * x * x - 2 * x;
+    return 2 * x - 3;
 }
 
 int main()
@@ -17,21 +16,14 @@ int main()
     double errlimit;
     cout << "Enter err limit: ";
     cin >> errlimit;
-
     double x;
     cout << "Enter initial value: ";
     cin >> x;
-
-    while (true)
+    double h = func(x) / derivFunc(x);
+    while (abs(h) >= errlimit)
     {
-        double h = func(x) / derivFunc(x);
+        h = func(x) / derivFunc(x);
         x = x - h;
-
-        if (abs(h) < errlimit)
-        {
-
-            break;
-        }
     }
 
     cout << "The value of the root is : " << x;
@@ -40,7 +32,10 @@ int main()
 
 
 
-// output:
+
+
+
+//output:
 //Enter err limit: 0.0001
 //Enter initial value: 2
-//The value of the root is : -1
+//The value of the root is : 2
