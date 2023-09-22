@@ -6,7 +6,7 @@ with open("input-code-2.txt", "r", encoding="utf-8") as file:
 set_A = set(map(int, lines[0].strip().split("{")[1].split("}")[0].split(",")))
 set_B = set(map(int, lines[1].strip().split("{")[1].split("}")[0].split(",")))
 
-relation_R = [(a, b) for a in set_A for b in set_B if a > b]
+relation_R = [(a, b) for a in set_A for b in set_B if a >= b]
 
 num_rows = len(set_A)
 num_cols = len(set_B)
@@ -14,7 +14,7 @@ matrix = np.zeros((num_rows, num_cols), dtype=int)
 
 for i, a in enumerate(set_A):
     for j, b in enumerate(set_B):
-        if a > b:
+        if a >= b:
             matrix[i, j] = 1
 
 print(relation_R)
@@ -23,9 +23,3 @@ print(matrix)
 
 
 
-#output:
-# [(2, 1), (3, 1), (3, 2), (4, 1), (4, 2), (4, 3)]
-# [[0 0 0]
-# [1 0 0]
-# [1 1 0]
-# [1 1 1]]

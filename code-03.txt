@@ -7,31 +7,29 @@ def matrix_exclusive_or(matrix1, matrix2):
         xor_matrix.append(row)
     return xor_matrix
 
-def matrix_union(mat1, mat2):
-    mat_union = []
-    for i in range(len(mat1)):
-        mat_union.append([mat1[i][j] or mat2[i][j] for j in range(len(mat1[0]))])
-    return mat_union
+# def matrix_union(mat1, mat2):
+#     mat_union = []
+#     for i in range(len(mat1)):
+#         mat_union.append([mat1[i][j] or mat2[i][j] for j in range(len(mat1[0]))])
+#     return mat_union
 
-matrix1 = [[1, 0, 1],
-           [1, 0, 0],
-           [0, 1, 1]]
-matrix2 = [[1, 0, 1],
+def matrix_intersection(mat1, mat2):
+    mat_intersection = []
+    for i in range(len(mat1)):
+        mat_intersection.append([mat1[i][j] and mat2[i][j] for j in range(len(mat1[0]))])
+    return mat_intersection
+
+
+matrix1 = [[1, 1, 1],
            [0, 1, 1],
-           [1, 0, 1]]
+           [0, 1, 0]]
+matrix2 = [[1, 0, 0],
+           [0, 1, 1],
+           [1, 1, 0]]
 
 print('First Matrix=', matrix1)
 print('Second Matrix=', matrix2)
-mu = matrix_union(matrix1, matrix2)
-print('Matrix Union', mu)
+mi = matrix_intersection(matrix1, matrix2)
+print('Matrix intersection', mi)
 mxor = matrix_exclusive_or(matrix1, matrix2)
 print('Matrix Exclusive-OR', mxor)
-
-
-
-
-#output:
-#First Matrix= [[1, 0, 1], [1, 0, 0], [0, 1, 1]]      
-#Second Matrix= [[1, 0, 1], [0, 1, 1], [1, 0, 1]]     
-#Matrix Union [[1, 0, 1], [1, 1, 1], [1, 1, 1]]       
-#Matrix Exclusive-OR [[0, 0, 0], [1, 1, 1], [1, 1, 0]]
